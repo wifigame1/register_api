@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/', indexRouter); //http://localhost:3000/api//
 app.use('/api/users', usersRouter); //http://localhost:3000/api/user/
-app.use('/api/register', registerRouter); //http://localhost:3000/api/customers/
+app.use('/api/register', registerRouter); 
 
 
 module.exports = app;

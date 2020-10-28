@@ -1,12 +1,12 @@
 const model = require("../models/index")
 
 exports.index = (req, res, next) => {
-    res.send('regiser');
+    res.send('register');
   }
  
   exports.show = async (req, res, next) => {
  
-        const data = await model.regiser.findAll()
+        const data = await model.register.findAll()
 
         res.status(200).json({
             data: data
@@ -19,7 +19,7 @@ exports.index = (req, res, next) => {
     const { firstname, lastname} = req.body;
 
     res.status(200).json({
-        data: [firstname, lastname]
+        data: [ firstname, lastname]
     });
 }
 
@@ -41,9 +41,9 @@ exports.destroy = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
  
-    const { id, firstname, lastname } = req.body;
+    const {id, firstname, lastname} = req.body;
 
-    const check = await model.regiser.update({
+    const check = await model.register.update({
       id,  firstname, lastname
     },
     {

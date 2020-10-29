@@ -16,10 +16,12 @@ exports.index = (req, res, next) => {
 
   exports.insert = async (req, res, next) => {
  
-    const { firstname, lastname} = req.body;
+    const { firstname,lastname } = req.body;
 
-    res.status(200).json({
-        data: [ firstname, lastname]
+    const check = await model.register.create({
+        firstname, lastname })
+    res.status(201).json({
+        message: check
     });
 }
 
@@ -27,7 +29,7 @@ exports.destroy = async (req, res, next) => {
  
     const { id } = req.params;
 
-    const check = await model.regiser.destroy({
+    const check = await model.register.destroy({
 
             where: {
                 id: id
@@ -41,7 +43,7 @@ exports.destroy = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
  
-    const {id, firstname, lastname} = req.body;
+    const { id, firstname, lastname } = req.body;
 
     const check = await model.register.update({
       id,  firstname, lastname
